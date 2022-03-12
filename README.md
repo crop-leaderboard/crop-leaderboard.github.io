@@ -1,6 +1,6 @@
 # Website of CROP-leaderboard: a standardized certified adversarial robustness benchmark of RL algorithms
 
-**Leaderboard website**: [https://zijianh4.github.io/CROP-leaderboard.github.io/](https://zijianh4.github.io/CROP-leaderboard.github.io/)
+**Leaderboard website**: [https://crop-leaderboard.github.io](https://crop-leaderboard.github.io)
 
 **Model Zoo**: [https://github.com/RobustBench/robustbench](https://github.com/RobustBench/robustbench)
 
