@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178132094-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-178132094-1");
+  </script>
+
+  <meta charset="UTF-8" />
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+  <meta name="viewport" content="width=1024" />
+  <title>CROP Leaderboard: Certified robustness benchmark of RL algorithms</title>
+  <link rel="icon" type="image/png" href="./images/new_logo.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css" />
+  <script src="https://kit.fontawesome.com/b939870cfb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.foundation.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.foundation.min.js"></script>
+  <!-- <script type="text/javascript" src="/static/js/jquery.min.js"></script> -->
+
+  <link rel="stylesheet" href="./css/main.css" />
+  <script src="https://d3js.org/d3.v4.js"></script>
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-md">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html"
+          >CROP-leaderboard</a>
+        <button
+          class="navbar-toggler navbar-light"
+          type="button"
+          data-toggle="collapse"
+          data-target="#main-navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navigation">
+          <ul class="navbar-nav">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#leaderboard">Leaderboards</a>
+            </li> -->
+            <li>
+              <!-- <a class="nav-link" href="https://arxiv.org/abs/2106.09292">Paper</a> -->
+              <a class="nav-link" href="https://openreview.net/forum?id=HOjLHrlZhmx">Paper</a>
+            </li>
+            <li>
+              <!-- <a class="nav-link" href="#faq"
+                >FAQ</a
+              > -->
+              <a class="nav-link" href="javascript:;"
+                >FAQ</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="https://copa-leaderboard.github.io">COPA leaderboard</a>
+            </li>
+            <!-- <li> -->
+              <!-- <a class="nav-link" href="#contribute">Contribute</a> -->
+              <!-- <a class="nav-link" href="javascript:;">Contribute</a> -->
+            <!-- </li> -->
+            <!-- <li>
+              <a class="nav-link text-nowrap" href="javascript:;"
+                >Model Zoo 🚀</a 
+              >
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <!-- <hr class="toprule" /> -->
+  <header>
+    <div class="header-block container">
+      <div class="logo"><img src="./images/new_logo.png" alt="logo" /></div>
+      <div class="title">CROP-leaderboard</div>
+      <div class="description">
+        A standardized benchmark for certified robustness of RL algorithms
+      </div>
+    </div>
+  </header>
+  <!-- <hr class="toprule" /> -->
+
+  <div class="container">
+    <section id="introduction">
+      <div class="overview">
+        <p class="doublealign">
+          The goal of <b>CROP-leaderboard</b> is to systematically certify the robustness of different RL algorithms based on certification criteria such as per-state action and the lower bound of cumulative reward. The related paper can be found <a href="https://openreview.net/forum?id=HOjLHrlZhmx">here</a>.
+        </p>
+        <!-- <div class="flexbox-container features">
+          <div class="element">
+            <div class="icon">
+              <img src="https://img.icons8.com/wired/100/000000/leaderboard.png" />
+            </div>
+            <p>
+              Up-to-date leaderboard based <br />
+              on 9 models
+            </p>
+          </div>
+          <div class="element">
+            <div class="icon">
+              <img src="https://img.icons8.com/ios-glyphs/80/000000/user-credentials.png" />
+            </div>
+            <p>
+              Unified access to 9 state-of-the-art <br />robust models via
+              Model Zoo
+            </p>
+          </div>
+        </div> -->
+      </div>
+      <!-- <div class="details">
+        <div class="box usage">
+          <p>Model Zoo</p>
+          <div class="divider">
+            <hr />
+          </div>
+          Check out the
+          <a href="javascript:;">available models</a>
+          and our
+          <a href="javascript:;">Online certification API</a>.
+          <div class="codeblock">
+            <div class="vspace10"></div> -->
+            <!--
+# !pip install git+https://github.com/RobustBench/robustbench.git@v0.2.1
+from robustbench.utils import load_model
+# Load a model from the model zoo
+model = load_model(model_name='Carmon2019Unlabeled',
+                   dataset='cifar10',
+                   threat_model='Linf')
+
+# Evaluate the Linf robustness of the model using AutoAttack
+from robustbench.eval import benchmark
+clean_acc, robust_acc = benchmark(model,
+                                  dataset='cifar10',
+                                  threat_model='Linf')
+
+            -->
+            <!-- HTML generated using hilite.me -->
+            <!-- <div style="background: #ffffff; overflow:auto;width:auto;padding:.2em .6em;">
+              <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># !pip install git+https://github.com/RobustBench/robustbench@v0.2.1</span>
+<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">robustbench.utils</span> <span style="color: #008800; font-weight: bold">import</span> load_model
+<span style="color: #888888"># Load a model from the model zoo</span>
+model <span style="color: #333333">=</span> load_model(model_name<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;Carmon2019Unlabeled&#39;</span>,
+                   dataset<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;cifar10&#39;</span>,
+                   threat_model<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;Linf&#39;</span>)
+
+<span style="color: #888888"># Evaluate the Linf robustness of the model using AutoAttack</span>
+<span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">robustbench.eval</span> <span style="color: #008800; font-weight: bold">import</span> benchmark
+clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
+                                  dataset<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;cifar10&#39;</span>,
+                                  threat_model<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;Linf&#39;</span>)
+</pre>
+            </div> -->
+
+
+            <!-- HTML generated using hilite.me -->
+            <!-- <div style="
+                background: #ffffff;
+                overflow: auto;
+                width: auto;
+                border: solid gray;
+                border-width: 0em 0em 0em 0em;
+                padding: 0.2em 0.6em;
+              ">
+
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="box images">
+          <p>Analysis</p>
+          <div class="divider">
+            <hr />
+          </div>
+          Check out <a href="https://arxiv.org/abs/2106.09292">our paper</a> with a detailed analysis.
+          <div> -->
+            <!--          <div class="scroller analysis-images">-->
+            <!-- <img class="analysis" src="./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_loact_clean.png" alt="Example figure" /> -->
+            <!--            <img-->
+            <!--              src="./images/aa_robustness_vs_standard_Linf.png"-->
+            <!--              alt="robustness_vs_clean"-->
+            <!--            />-->
+        <!--   </div>
+        </div>
+      </div>
+      <div class="vspace10"></div> -->
+    </section>
+
+    <div id="leaderboard" class="container button-list">
+      <div class="heading">
+        <u>
+          Available Leaderboards
+        </u>
+      </div>
+      <div style="display: flex">
+        <label>Game: 
+          <select id="games" style="width:150px; margin: 10px">
+            <option value="CartPole-v0">CartPole-v0</option>
+            <option value="PongNoFrameskip-v4">PongNoFrameskip-v4</option>
+            <option value="FreewayNoFrameskip-v4">FreewayNoFrameskip-v4</option>
+            <!-- <option value="BoxingNoFrameskip-v4">BoxingNoFrameskip-v4</option>
+            <option value="BreakoutNoFrameskip-v4">BreakoutNoFrameskip-v4</option> -->
+            <option value="highway-fast-v0">highway-fast-v0</option>
+          </select>
+        </label>
+      <!-- </div>
+      <div> -->
+        <label>Certification strategy: 
+          <select id="cert-methods" style="width:150px; margin: 10px">
+            <option value="LoAct">LoAct</option>
+            <option value="GRe-mean">GRe-mean</option>
+            <option value="GRe-median">GRe-median</option>
+            <option value="LoRe">LoRe</option>
+          </select>
+        </label>
+      <!-- </div>
+      <div> -->
+        <button type="button" class="button" onclick="choice()" style="width:150px; margin: 10px; height: 40px;">Certify!</button>
+      </div>
+    </div>
+
+    <!-- <div id="leaderboard-games" class="container button-list">
+      <div class="heading">
+        <u>
+          Available Leaderboards (games)
+        </u>
+      </div>
+      <a class="btn btn-secondary" href="#leaderboard-CartPole">CartPole-v0</a>
+      <a class="btn btn-secondary" href="#leaderboard-Pong">PongNoFrameskip-v4</a>
+      <a class="btn btn-secondary" href="#leaderboard-Freeway">FreewayNoFrameskip-v4</a>
+      <a class="btn btn-secondary" href="#leaderboard-Boxing">BoxingNoFrameskip-v4</a>
+      <a class="btn btn-secondary" href="#leaderboard-Breakout">BreakoutNoFrameskip-v4</a>
+    </div> -->
+
+    <div id="leaderboard-CartPole" class="container button-list">
+      <div class="heading">
+        <u>
+          CartPole-v0
+        </u>
+      </div>
+      <!-- <a class="btn btn-secondary" href="#CartPole-v0_LoAct_heading">CartPole-v0 (LoAct)</a>
+      <a class="btn btn-secondary" href="#CartPole-v0_GRe-mean_heading">CartPole-v0 (GRe-mean)</a>
+      <a class="btn btn-secondary" href="#CartPole-v0_GRe-median_heading">CartPole-v0 (GRe-median)</a>
+      <a class="btn btn-secondary" href="#CartPole-v0_LoRe_heading">CartPole-v0 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoAct_heading">PongNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#PongNoFrameskip-v4_GRe_heading">PongNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoRe_heading">PongNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoAct_heading">FreewayNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_GRe_heading">FreewayNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoRe_heading">FreewayNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoAct_heading">BoxingNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_GRe_heading">BoxingNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoRe_heading">BoxingNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoAct_heading">BreakoutNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_GRe_heading">BreakoutNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoRe_heading">BreakoutNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#div_imagenet_Linf_heading">ImageNet (\( \ell_\infty\))</a>
+      <a class="btn btn-secondary" href="#div_imagenet_corruptions_heading">ImageNet (Corruptions)</a> -->
+    <!-- </div> -->
+
+
+    <section>
+      <div class="heading_second" id="CartPole-v0_LoAct_heading">
+        <u>
+<!--          <div style="opacity:0;">1<br>1<br>1<br>1</div> &lt;!&ndash; Needed to introduce a margin for the navigation bar between leaderboards &ndash;&gt;-->
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard: CartPole-v0 (LoAct)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certiﬁcation for per-state action in terms of certiﬁed radius r at all time steps. Each column corresponds to one smoothing variance &sigma; and each row corresponds to one RL algorithm. For each figure, the x-axis is time step <i>t</i>, and the y-axis is the certified radius <i>r<sub>t</sub></i>. The shaded area represents the standard deviation.
+        </p>
+      </div>
+
+      <div id="CartPole-v0_LoAct"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="CartPole-v0_GRe-mean_heading">
+        <u>
+<!--          <div style="opacity:0;">1<br>1<br>1<br>1</div> &lt;!&ndash; Needed to introduce a margin for the navigation bar between leaderboards &ndash;&gt;-->
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard: CartPole-v0 (GRe-mean)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>expection bound</i> <i><u>J<sub>E</sub></u></i>. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="CartPole-v0_GRe-mean"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="CartPole-v0_GRe-median_heading">
+        <u>
+<!--          <div style="opacity:0;">1<br>1<br>1<br>1</div> &lt;!&ndash; Needed to introduce a margin for the navigation bar between leaderboards &ndash;&gt;-->
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard: CartPole-v0 (GRe-median)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>percentile bound</i> <i><u>J<sub>P</sub> (p = 50%)</u></i>. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="CartPole-v0_GRe-median"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="CartPole-v0_LoRe_heading">
+        <u>
+<!--          <div style="opacity:0;">1<br>1<br>1<br>1</div> &lt;!&ndash; Needed to introduce a margin for the navigation bar between leaderboards &ndash;&gt;-->
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard: CartPole-v0 (LoRe)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>absolute lower bound bound</i> <i><u>J</sub></u></i>. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="CartPole-v0_LoRe"></div>
+    </section>
+
+    <div id="leaderboard-Pong" class="container button-list">
+      <div class="heading">
+        <u>
+          <div style="opacity:0;">1<br>1<br>1<br>1</div>
+          PongNoFrameskip-v4
+        </u>
+      </div>
+      <!-- <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoAct_heading">PongNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#PongNoFrameskip-v4_GRe_heading">PongNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoRe_heading">PongNoFrameskip-v4 (LoRe)</a> -->
+    </div>
+
+    <section>
+      <div class="heading_second" id="PongNoFrameskip-v4_LoAct_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          PongNoFrameskip-v4 (LoAct)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certiﬁcation for per-state action in terms of certiﬁed radius r at time steps = 500. Each column corresponds to one smoothing variance &sigma; and each row corresponds to one RL algorithm. For each figure, the x-axis is time step <i>t</i>, and the y-axis is the certified radius <i>r<sub>t</sub></i>. The shaded area represents the standard deviation.
+        </p>
+      </div>
+
+      <div id="PongNoFrameskip-v4_LoAct"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="PongNoFrameskip-v4_GRe-mean_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          PongNoFrameskip-v4 (GRe-mean)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>expection bound</i> <i><u>J<sub>E</sub></u></i> at time steps = 500. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="PongNoFrameskip-v4_GRe-mean"></div>
+    </section>
+
+     <section>
+      <div class="heading_second" id="PongNoFrameskip-v4_GRe-median_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          PongNoFrameskip-v4 (GRe-median)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>percentile bound</i> <i><u>J<sub>P</sub> (p = 50%)</u></i> at time steps = 500. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="PongNoFrameskip-v4_GRe-median"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="PongNoFrameskip-v4_LoRe_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          PongNoFrameskip-v4 (LoRe)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>absolute lower bound bound</i> <i><u>J</sub></u></i> at time steps = 200. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="PongNoFrameskip-v4_LoRe"></div>
+    </section>
+
+    <div id="leaderboard-Freeway" class="container button-list">
+      <div class="heading">
+        <u>
+          <div style="opacity:0;">1<br>1<br>1<br>1</div>
+          FreewayNoFrameskip-v4
+        </u>
+      </div>
+      <!-- <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoAct_heading">FreewayNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_GRe_heading">FreewayNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoRe_heading">FreewayNoFrameskip-v4 (LoRe)</a> -->
+    </div>
+
+    <section>
+      <div class="heading_second" id="FreewayNoFrameskip-v4_LoAct_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          FreewayNoFrameskip-v4 (LoAct)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certiﬁcation for per-state action in terms of certiﬁed radius r at time steps = 500. Each column corresponds to one smoothing variance &sigma; and each row corresponds to one RL algorithm. For each figure, the x-axis is time step <i>t</i>, and the y-axis is the certified radius <i>r<sub>t</sub></i>. The shaded area represents the standard deviation.
+        </p>
+      </div>
+
+      <div id="FreewayNoFrameskip-v4_LoAct"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="FreewayNoFrameskip-v4_GRe-mean_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          FreewayNoFrameskip-v4 (GRe-mean)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>expection bound</i> <i><u>J<sub>E</sub></u></i> at time steps = 500. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="FreewayNoFrameskip-v4_GRe-mean"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="FreewayNoFrameskip-v4_GRe-median_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          FreewayNoFrameskip-v4 (GRe-median)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>percentile bound</i> <i><u>J<sub>P</sub> (p = 50%)</u></i> at time steps = 500. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="FreewayNoFrameskip-v4_GRe-median"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="FreewayNoFrameskip-v4_LoRe_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          FreewayNoFrameskip-v4 (LoRe)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>absolute lower bound bound</i> <i><u>J</sub></u></i> at time steps = 200. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="FreewayNoFrameskip-v4_LoRe"></div>
+    </section>
+    
+    <div id="leaderboard-highway" class="container button-list">
+      <div class="heading">
+        <u>
+          <div style="opacity:0;">1<br>1<br>1<br>1</div>
+          highway-fast-v0
+        </u>
+      </div>
+    </div>
+
+    <section>
+      <div class="heading_second" id="highway-fast-v0_LoAct_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (LoAct)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certiﬁcation for per-state action in terms of certiﬁed radius r at time steps = 30. Each column corresponds to one smoothing variance &sigma; and each row corresponds to one RL algorithm. For each figure, the x-axis is time step <i>t</i>, and the y-axis is the certified radius <i>r<sub>t</sub></i>. The shaded area represents the standard deviation.
+        </p>
+      </div>
+
+      <div id="highway-fast-v0_LoAct"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="highway-fast-v0_GRe-mean_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (GRe-mean)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>expection bound</i> <i><u>J<sub>E</sub></u></i> at time steps = 30. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="highway-fast-v0_GRe-mean"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="highway-fast-v0_GRe-median_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (GRe-median)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>percentile bound</i> <i><u>J<sub>P</sub> (p = 50%)</u></i> at time steps = 30. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="highway-fast-v0_GRe-median"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="highway-fast-v0_LoRe_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (LoRe)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>absolute lower bound bound</i> <i><u>J</sub></u></i> at time steps = 30. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="highway-fast-v0_LoRe"></div>
+    </section>
+
+    <!-- <section>
+      <div class="heading" id="div_imagenet_Linf_heading">
+        <p>
+          <div style="opacity:0;">1<br>1<br>1<br>1</div> 
+          Leaderboard:
+          <span class="heading-math">ImageNet, \( \ell_\infty = 4/255 \)</span>,
+          untargeted attack
+        </p>
+      </div>
+
+      <div id="div_imagenet_Linf"></div>
+    </section>
+
+    <section>
+      <div class="heading" id="div_imagenet_corruptions_heading">
+        <p>
+          <div style="opacity:0;">1<br>1<br>1<br>1</div> 
+          Leaderboard:
+          <span class="heading-math">ImageNet, Common Corruptions</span>,
+          ImageNet-C
+        </p>
+      </div>
+
+      <div id="div_imagenet_corruptions"></div>
+    </section> -->
+
+    <div class="vspace30"></div>
+
+    <!-- <section id="faq">
+      <div class="heading">
+        <p>FAQ</p>
+      </div>
+
+      <p class="qa-box">
+        <span class="question">&#10148; How is it related to libraries like
+          <a href="https://github.com/bethgelab/foolbox">foolbox</a> /
+          <a href="https://github.com/tensorflow/cleverhans">cleverhans</a> /
+          <a href="https://github.com/BorealisAI/advertorch">advertorch</a>? 🤔
+        </span>
+        <br />
+        <span class="answer">These libraries provide implementations of different
+          <em>attacks</em>. Besides the standardized benchmark,
+          <strong>CROP</strong> additionally provides a repository of the
+          most robust models' certification. So you can compare different reinforcement learning algorithm in one
+          line of code (see the tutorial
+          <a href="https://github.com/RobustBench/robustbench#model-zoo-quick-tour">here</a>).</span>
+      </p>
+
+      <p class="qa-box">
+        <span class="question">&#10148; Why is Lp-robustness still interesting in 2021? 🤔
+        </span>
+        <br />
+        <span class="answer">There are numerous interesting applications of Lp-robustness that
+          span transfer learning (<a href="https://arxiv.org/abs/2007.08489">Salman et al. (2020)</a>,
+          <a href="https://arxiv.org/abs/2007.05869">Utrera et al. (2020)</a>),
+          interpretability (<a href="https://arxiv.org/abs/1805.12152">Tsipras et al. (2018)</a>, <a
+            href="https://arxiv.org/abs/1910.08640">Kaur et al. (2019)</a>,
+          <a href="https://arxiv.org/abs/1906.00945">Engstrom et al. (2019)</a>), security (<a
+            href="https://arxiv.org/abs/1811.03194">Tramèr et al. (2018)</a>,
+          <a href="https://arxiv.org/abs/1906.07153">Saadatpanah et al. (2019)</a>), generalization (<a
+            href="https://arxiv.org/abs/1911.09665">Xie et al. (2019)</a>, <a
+            href="https://arxiv.org/abs/1909.11764">Zhu et al. (2019)</a>,
+          <a href="https://arxiv.org/abs/2004.10934">Bochkovskiy et al. (2020)</a>), robustness to unseen perturbations
+          (<a href="https://arxiv.org/abs/1911.09665">Xie et al. (2019)</a>, <a
+            href="https://arxiv.org/abs/1905.01034">Kang et al. (2019)</a>),
+          stabilization of GAN training (<a href="https://arxiv.org/abs/2008.03364">Zhong et al. (2020)</a>).</span>
+      </p>
+
+      <p class="qa-box">
+        <span class="question">&#10148; What if I have a better attack than the one used in this
+          benchmark? 🤔
+        </span>
+        <br />
+        <span class="answer">We will be happy to add a better attack or any adaptive evaluation
+          that would complement our default standardized attacks.</span>
+      </p>
+    </section> -->
+
+
+
+    <!-- <div class="vspace50"></div>
+
+    <section id="citation">
+      <div class="heading">
+        <p>Citation</p>
+      </div>
+      Consider citing our whitepaper if you want to reference our leaderboard or if you are using the models from the
+      Model Zoo: -->
+      <!--      @article{croce2020robustbench,-->
+      <!--        title={RobustBench: a standardized adversarial robustness benchmark},-->
+      <!--        author={Croce, Francesco and Andriushchenko, Maksym and Sehwag, Vikash and Flammarion, Nicolas and Chiang, Mung and Mittal, Prateek and Matthias Hein},-->
+      <!--        journal={arXiv preprint arXiv:2010.09670},-->
+      <!--        year={2020}-->
+      <!--      }-->
+      <!-- HTML generated using hilite.me -->
+      <!-- <div
+        style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;">
+        <pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@article</span>{croce2020robustbench,
+    title<span style="color: #333333">=</span>{CROP: Certifying Robust Policies for Reinforcement Learning through Functional Smoothing},
+    author<span style="color: #333333">=</span>{Fan Wu <span style="color: #000000; font-weight: bold">and</span> Linyi Li <span style="color: #000000; font-weight: bold">and</span> Zijian Huang <span style="color: #000000; font-weight: bold">and</span> Yevgeniy Vorobeychik <span style="color: #000000; font-weight: bold">and</span> Ding Zhao <span style="color: #000000; font-weight: bold">and</span> Bo Li},
+    year<span style="color: #333333">=</span>{2021},
+    eprint<span style="color: #333333">=</span>{2106.09292},
+    archivePrefix<span style="color: #333333">=</span>{arXiv},
+    primaryClass<span style="color: #333333">=</span>{cs.LG} -->
+    <!-- journal<span style="color: #333333">=</span>{arXiv preprint arXiv:2010.09670}, -->
+<!-- }</pre>
+      </div>
+
+    </section> -->
+
+    <div class="vspace50"></div>
+
+    <!-- <section id="contribute">
+      <div class="details">
+        <div class="box2">
+          <p>Contribute to CROP-leaderboard!</p>
+          <div class="divider">
+            <hr />
+          </div>
+          We welcome any contribution in terms of both new robust models and
+          evaluations. Please check
+          <a href="javascript:;">here</a>
+          for more details.
+          <br />
+          <br />
+          Feel free to contact us at
+          <a href="javascript:;">adversarial.benchmark@gmail.com</a>
+        </div>
+        <div class="box2">
+          <p>Maintainers</p>
+          <div class="divider">
+            <hr />
+          </div>
+          <ul>
+            <li>
+              <a href="https://kkkkahlua.github.io/" target="_blank">Fan Wu
+              </a>
+              <a href="https://kkkkahlua.github.io/"><i class="fas fa-globe"></i></a>
+              <a href="https://github.com/kkkkahlua"><i class="fab fa-github"></i></a>
+              <a href="https://scholar.google.com/citations?user=xWuB--YAAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
+            </li>
+            <li>
+              <a href="https://zijianh4.github.io" target="_blank">Zijian Huang</a>
+              <a href="https://zijianh4.github.io"><i class="fas fa-globe"></i></a>
+              <a href="https://github.com/zijianh4"><i class="fab fa-github"></i></a>
+              <a href="https://scholar.google.com/citations?user=kJMFTw0AAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section> -->
+  </div>
+
+  <hr class="bottomrule" />
+
+  <footer>
+    <small>&copy; 2021, CROP-leaderboard;
+      <a href="https://icons8.com/icon/100413/access">Icons from Icons8</a></small>
+  </footer>
+
+  <script>
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function () {
+      myFunction();
+    };
+    // Get the navbar
+    var navbar = document.getElementById("navbar");
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
+  <script>
+    function choice() {
+      var game = document.getElementById("games").value;
+      var cert_method = document.getElementById("cert-methods").value;
+      window.location.href = "#"+game+"_"+cert_method+"_heading";
+    }
+  </script>
+  <script>
+    $("#CartPole-v0_LoAct").load("./CartPole-v0/LoAct.html");
+    $("#CartPole-v0_GRe-mean").load("./CartPole-v0/GRe-mean.html");
+    $("#CartPole-v0_GRe-median").load("./CartPole-v0/GRe-median.html");
+    $("#CartPole-v0_LoRe").load("./CartPole-v0/LoRe.html");
+    $("#PongNoFrameskip-v4_LoAct").load("./PongNoFrameskip-v4/LoAct.html");
+    $("#PongNoFrameskip-v4_GRe-mean").load("./PongNoFrameskip-v4/GRe-mean.html");
+    $("#PongNoFrameskip-v4_GRe-median").load("./PongNoFrameskip-v4/GRe-median.html");
+    $("#PongNoFrameskip-v4_LoRe").load("./PongNoFrameskip-v4/LoRe.html");
+    $("#FreewayNoFrameskip-v4_LoAct").load("./FreewayNoFrameskip-v4/LoAct.html");
+    $("#FreewayNoFrameskip-v4_GRe-mean").load("./FreewayNoFrameskip-v4/GRe-mean.html");
+    $("#FreewayNoFrameskip-v4_GRe-median").load("./FreewayNoFrameskip-v4/GRe-median.html");
+    $("#FreewayNoFrameskip-v4_LoRe").load("./FreewayNoFrameskip-v4/LoRe.html");
+    // $("#BoxingNoFrameskip-v4_LoAct").load("./BoxingNoFrameskip-v4/LoAct.html");
+    // $("#BoxingNoFrameskip-v4_GRe-mean").load("./BoxingNoFrameskip-v4/GRe-mean.html");
+    // $("#BoxingNoFrameskip-v4_GRe-median").load("./BoxingNoFrameskip-v4/GRe-median.html");
+    // $("#BoxingNoFrameskip-v4_LoRe").load("./BoxingNoFrameskip-v4/LoRe.html");
+    // $("#BreakoutNoFrameskip-v4_LoAct").load("./BreakoutNoFrameskip-v4/LoAct.html");
+    // $("#BreakoutNoFrameskip-v4_GRe-mean").load("./BreakoutNoFrameskip-v4/GRe-mean.html");
+    // $("#BreakoutNoFrameskip-v4_GRe-median").load("./BreakoutNoFrameskip-v4/GRe-median.html");
+    // $("#BreakoutNoFrameskip-v4_LoRe").load("./BreakoutNoFrameskip-v4/LoRe.html");
+    $("#highway-fast-v0_LoAct").load("./highway-fast-v0/LoAct.html");
+    $("#highway-fast-v0_GRe-mean").load("./highway-fast-v0/GRe-mean.html");
+    $("#highway-fast-v0_GRe-median").load("./highway-fast-v0/GRe-median.html");
+    $("#highway-fast-v0_LoRe").load("./highway-fast-v0/LoRe.html");
+  </script>
+</body>
