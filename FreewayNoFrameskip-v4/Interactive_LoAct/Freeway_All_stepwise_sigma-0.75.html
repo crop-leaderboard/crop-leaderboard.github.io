@@ -586,7 +586,7 @@ d3.csv('./data/data_1207_Freeway_stepwise_RegPGD/Freeway_stepwise_sigma-0.75.csv
       .attr("cx", x(selectedData_7.x))
       .attr("cy", y(selectedData_7.y))
     focusText_7
-      .html("RegCVX: (" + selectedData_7.x + ", " + d3.format(".1e")(selectedData_7.y) + ")")
+      .html("SA-MDP (CVX): (" + selectedData_7.x + ", " + d3.format(".1e")(selectedData_7.y) + ")")
       .attr("x", 800)
       .attr("y", 160)
 
@@ -596,7 +596,7 @@ d3.csv('./data/data_1207_Freeway_stepwise_RegPGD/Freeway_stepwise_sigma-0.75.csv
       .attr("cx", x(selectedData_8.x))
       .attr("cy", y(selectedData_8.y))
     focusText_8
-      .html("RegPGD: (" + selectedData_8.x + ", " + d3.format(".1e")(selectedData_8.y) + ")")
+      .html("SA-MDP (PGD): (" + selectedData_8.x + ", " + d3.format(".1e")(selectedData_8.y) + ")")
       .attr("x", 800)
       .attr("y", 180)
     }
