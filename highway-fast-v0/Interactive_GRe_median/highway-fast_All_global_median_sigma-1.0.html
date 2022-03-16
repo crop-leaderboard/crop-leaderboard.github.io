@@ -25,24 +25,24 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv('./data/data_0126_highway-fast_global_median_CARRL/highway-fast_global_median_sigma-1,0.csv',function(data_0) {
-    d3.csv('./data/data_0126_highway-fast_global_median_CARRL/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_0) {
-d3.csv('./data/data_0126_highway-fast_global_median_NoisyNet/highway-fast_global_median_sigma-1,0.csv',function(data_1) {
-    d3.csv('./data/data_0126_highway-fast_global_median_NoisyNet/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_1) {
-d3.csv('./data/data_0126_highway-fast_global_median_RadialRL/highway-fast_global_median_sigma-1,0.csv',function(data_2) {
-    d3.csv('./data/data_0126_highway-fast_global_median_RadialRL/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_2) {
-d3.csv('./data/data_0126_highway-fast_global_median_AdvTrain/highway-fast_global_median_sigma-1,0.csv',function(data_3) {
-    d3.csv('./data/data_0126_highway-fast_global_median_AdvTrain/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_3) {
-d3.csv('./data/data_0126_highway-fast_global_median_GradDQN/highway-fast_global_median_sigma-1,0.csv',function(data_4) {
-    d3.csv('./data/data_0126_highway-fast_global_median_GradDQN/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_4) {
-d3.csv('./data/data_0126_highway-fast_global_median_StdTrain/highway-fast_global_median_sigma-1,0.csv',function(data_5) {
-    d3.csv('./data/data_0126_highway-fast_global_median_StdTrain/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_5) {
-d3.csv('./data/data_0126_highway-fast_global_median_GaussAug/highway-fast_global_median_sigma-1,0.csv',function(data_6) {
-    d3.csv('./data/data_0126_highway-fast_global_median_GaussAug/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_6) {
-d3.csv('./data/data_0126_highway-fast_global_median_RegCVX/highway-fast_global_median_sigma-1,0.csv',function(data_7) {
-    d3.csv('./data/data_0126_highway-fast_global_median_RegCVX/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_7) {
-d3.csv('./data/data_0126_highway-fast_global_median_RegPGD/highway-fast_global_median_sigma-1,0.csv',function(data_8) {
-    d3.csv('./data/data_0126_highway-fast_global_median_RegPGD/highway-fast_global_median_sigma-1,0_attack.csv',function(data_atk_8) {
+d3.csv('./data/data_0126_highway-fast_global_median_CARRL/highway-fast_global_median_sigma-1.0.csv',function(data_0) {
+    d3.csv('./data/data_0126_highway-fast_global_median_CARRL/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_0) {
+d3.csv('./data/data_0126_highway-fast_global_median_NoisyNet/highway-fast_global_median_sigma-1.0.csv',function(data_1) {
+    d3.csv('./data/data_0126_highway-fast_global_median_NoisyNet/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_1) {
+d3.csv('./data/data_0126_highway-fast_global_median_RadialRL/highway-fast_global_median_sigma-1.0.csv',function(data_2) {
+    d3.csv('./data/data_0126_highway-fast_global_median_RadialRL/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_2) {
+d3.csv('./data/data_0126_highway-fast_global_median_AdvTrain/highway-fast_global_median_sigma-1.0.csv',function(data_3) {
+    d3.csv('./data/data_0126_highway-fast_global_median_AdvTrain/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_3) {
+d3.csv('./data/data_0126_highway-fast_global_median_GradDQN/highway-fast_global_median_sigma-1.0.csv',function(data_4) {
+    d3.csv('./data/data_0126_highway-fast_global_median_GradDQN/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_4) {
+d3.csv('./data/data_0126_highway-fast_global_median_StdTrain/highway-fast_global_median_sigma-1.0.csv',function(data_5) {
+    d3.csv('./data/data_0126_highway-fast_global_median_StdTrain/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_5) {
+d3.csv('./data/data_0126_highway-fast_global_median_GaussAug/highway-fast_global_median_sigma-1.0.csv',function(data_6) {
+    d3.csv('./data/data_0126_highway-fast_global_median_GaussAug/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_6) {
+d3.csv('./data/data_0126_highway-fast_global_median_RegCVX/highway-fast_global_median_sigma-1.0.csv',function(data_7) {
+    d3.csv('./data/data_0126_highway-fast_global_median_RegCVX/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_7) {
+d3.csv('./data/data_0126_highway-fast_global_median_RegPGD/highway-fast_global_median_sigma-1.0.csv',function(data_8) {
+    d3.csv('./data/data_0126_highway-fast_global_median_RegPGD/highway-fast_global_median_sigma-1.0_attack.csv',function(data_atk_8) {
   // console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
@@ -672,7 +672,7 @@ d3.csv('./data/data_0126_highway-fast_global_median_RegPGD/highway-fast_global_m
     .attr("text-anchor", "middle")  
     .style("font-size", "24px") 
     .style("text-decoration", "underline")  
-    .text("highway-fast GRe-median, \u03C3 = 1,0")
+    .text("highway-fast GRe-median, \u03C3 = 1.0")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
