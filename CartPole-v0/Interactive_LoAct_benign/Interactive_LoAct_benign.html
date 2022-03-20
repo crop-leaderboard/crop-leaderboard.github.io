@@ -43,7 +43,7 @@ d3.csv('./data/data_0920_CartPole_stepwise_clean_SA-MDP (PGD)/CartPole_stepwise_
     .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
-    .tickValues([0.001, 0.005, 0.01, 0.03, 0.05, 0.1])
+    .tickValues([0.005, 0.03, 0.05, 0.1])
     .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
@@ -462,7 +462,7 @@ d3.csv('./data/data_0920_CartPole_stepwise_clean_SA-MDP (PGD)/CartPole_stepwise_
     .attr("text-anchor", "middle")  
     .style("font-size", "24px") 
     .style("text-decoration", "underline")  
-    .text("CartPole LoAct, \u03C3 = 0.01")
+    .text("CartPole LoAct Benign Reward")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
